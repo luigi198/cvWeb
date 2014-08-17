@@ -4,7 +4,8 @@
 // -----------------------
 
 var env = process.env.NODE_ENV || 'development',
-	config = require('../../config/config')[env];
+	config = require('../../config/config')[env],
+	resJSON = require('../utils/resJSON');
 
 // -----------------------
 // Controller Actions
@@ -26,7 +27,17 @@ var renderHome = function(res) {
 exports.home = function(req, res) {
 	if (env === 'development') console.log(env);
 	if (req.xhr) {
-		res.render('partials/home');
+		console.log('xhr');
+		res.render('partials/home', function(err, html) {
+			if (err) {
+				res.json(resJSON.error(err));
+			} else {
+				console.log('html en serv: ', html);
+				res.json(resJSON.ok({
+					html: html
+				}));
+			}
+		});
 	} else {
 		renderHome(res);
 	}

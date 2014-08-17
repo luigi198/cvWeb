@@ -5,11 +5,15 @@ require.config({
 		'jquery': 'lib/jquery-1.11.0.min',
 		'history': 'lib/native.history',
 		'nitram': 'lib/nitram.min',
-		'controllers': 'controllers',
+		'homeCtrl': 'controllers/homeCtrl',
+		'typed': 'lib/typed',
 		'routes': 'routes'
 	},
 	shim: {
 		'history': {
+			deps: ['jquery']
+		},
+		'typed': {
 			deps: ['jquery']
 		}
 	}
@@ -42,7 +46,9 @@ window.DBG = (typeof DBG === 'undefined') ? true : DBG;
 	}
 }());
 
-require(['jquery', 'nitram', 'history', 'controllers', 'routes'],
+require(['jquery', 'nitram', 'history', 'routes',
+		'typed', 'homeCtrl'
+	],
 	function($, nitram) {
 
 		'use strict';

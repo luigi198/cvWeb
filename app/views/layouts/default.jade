@@ -13,8 +13,6 @@ html
 
     link(href="/img/favicon.ico", rel="shortcut icon", type="image/x-icon")
 
-    link(href='http://fonts.googleapis.com/css?family=Lato:100,400,700,100italic,400italic,700italic', rel='stylesheet', type='text/css')
-
     link(rel="stylesheet", href="/css/style.css")
     script(id="requirescript", data-main='js/main', src='js/lib/require.js')
     script.
@@ -22,5 +20,27 @@ html
   body
     
     block content
+
+    .main
+      .header
+        .navbar
+          a(href='#') prueba
+      .container
+        .column
+          .textContainer
+            .typingDiv
+              span#personalInfoTyped(style="white-space:pre") I wish the mouse could travel over this text...
+          .textContainer
+            .typingDiv
+              span#academicInfoTyped(style="white-space:pre")
+        .column
+          span Images
+        .column
+          .textContainer
+            .typingDiv
+              span#experienceInfoTyped(style="white-space:pre")
+          .textContainer
+            .typingDiv
+              span#otherInfoTyped(style="white-space:pre")
 
     include ../includes/foot 
