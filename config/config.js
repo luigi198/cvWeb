@@ -1,16 +1,12 @@
 var path = require('path'),
 	rootPath = path.resolve(__dirname + '../..'),
-	title = '[TODO: title]';
+	title = 'Luis Córdoba - CV';
 
 // -----------------------
 // Expose config
 // -----------------------
 
-// root: directorio root del proyecto
-// publicdir: directorio donde están los assets
 // title: título base para el sitio
-// fbappid: Facebook App ID (cambiarlo también en fb.js)
-// gaid: Google Analytics property ID
 
 module.exports = {
 	development: {
@@ -19,9 +15,7 @@ module.exports = {
 		title: '[dev] ' + title,
 		style: '/css/style.css',
 		main: '/js/main.js',
-		fbappid: '[TODO: Facebook App ID]',
-		gaid: '[TODO: UA]',
-		domain: '[TODO: domain]',
+		domain: '',
 		db: 'mongodb://localhost/test'
 	},
 	staging: {
@@ -30,9 +24,7 @@ module.exports = {
 		title: title,
 		style: '/css/style.css',
 		main: '/js/main.js',
-		fbappid: '[TODO: Facebook App ID]',
-		gaid: '[TODO: UA]',
-		domain: '[TODO: Domain]',
+		domain: '',
 		db: process.env.MONGOHQ_URL
 	},
 	production: {
@@ -41,9 +33,7 @@ module.exports = {
 		title: title,
 		style: '/css/style.css',
 		main: '/js/main.js',
-		fbappid: '[TODO: Facebook App ID]',
-		gaid: '[TODO: UA]',
-		domain: '[TODO: Domain]',
+		domain: '',
 		db: process.env.MONGOHQ_URL
 	}
-}
+};

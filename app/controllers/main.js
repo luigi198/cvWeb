@@ -1,14 +1,10 @@
+'use strict';
 // -----------------------
 // Variables
 // -----------------------
 
-var env = process.env.NODE_ENV || 'development'
-var config = require('../../config/config')[env]
-
-
-// Dependencias
-
-// var data = require('../../config/data')
+var env = process.env.NODE_ENV || 'development',
+	config = require('../../config/config')[env];
 
 // -----------------------
 // Controller Actions
@@ -17,57 +13,21 @@ var config = require('../../config/config')[env]
 //
 // Basic
 //
-var parentController = function(req, res, ifXHR) {
-
-  if (typeof ifXHR == 'undefined') {
-    ifXHR = function() {
-      res.json({})
-    }
-  }
-
-  if (req.xhr) {
-    ifXHR();
-  } else {
-    res.render('home', {
-      title: config.title,
-      config: config
-    })
-  }
-}
+var renderHome = function(res) {
+	res.render('home', {
+		config: config
+	});
+};
 
 
 //
 // Home
 //
 exports.home = function(req, res) {
-  parentController(req, res, function() {
-    res.render('partials/home')
-  })
-}
-
-//
-// Hello World
-//
-exports.helloworld = function(req, res) {
-  parentController(req, res, function() {
-    res.render('partials/helloworld')
-  })
-}
-
-//
-// contact
-//
-exports.contact = function(req, res) {
-  parentController(req, res, function() {
-    res.render('partials/contact')
-  })
-}
-
-//
-// Features
-//
-exports.features = function(req, res) {
-  parentController(req, res, function() {
-    res.render('partials/features')
-  })
-}
+	if (env === 'development') console.log(env);
+	if (req.xhr) {
+		res.render('partials/home');
+	} else {
+		renderHome(res);
+	}
+};

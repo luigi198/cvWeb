@@ -1,9 +1,10 @@
+'use strict';
 // -----------------------
 // Variables
 // -----------------------
 
-var env = process.env.NODE_ENV || 'development'
-var config = require('../../config/config')[env]
+var env = process.env.NODE_ENV || 'development',
+	config = require('../../config/config')[env];
 
 
 // Dependencias
@@ -17,6 +18,10 @@ var config = require('../../config/config')[env]
 //
 // Data
 //
-// exports.helloworld = function(req, res) {
-//   res.json({msg: "Hello World"}})
-// }
+exports.helloworld = function(req, res) {
+	console.log(env, config);
+	console.log(req);
+	res.json({
+		msg: 'Hello World'
+	});
+};
